@@ -1,0 +1,10 @@
+---
+import { BlogForm } from '../components/BlogForm';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Awesome Microblogging">
+  <main>
+    <BlogForm client:load />
+  </main>
+</Layout>

@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/solid-js": "^2.1.0",
+    "astro": "^2.2.1",
+    "pocketbase": "^0.13.1",
+    "solid-js": "^1.7.3"
+  },
+  "devDependencies": {
+    "sass": "^1.61.0"
+  }
+}

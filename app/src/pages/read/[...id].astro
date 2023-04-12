@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getPost } from "../../service/PostService";
+
+const { id } = Astro.params;
+const post = await getPost(id!);
+---
+
+<Layout title={`Awesome Microblogging`}>
+	<main>
+    <p>{post?.text}</p>
+    <ul>
+      {post?.tags.split(",").map(it => <li>{it}</li>)}
+    </ul>
+	</main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 0 auto;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+  }
+</style>

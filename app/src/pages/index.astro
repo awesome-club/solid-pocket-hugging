@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getRecentPost } from '../service/PostService';
+const post = await getRecentPost();
+---
+<Layout title="Awesome Microblogging">
+  <main>
+    <section>
+      <div class="hero"></div>
+      <div class="data">
+        <h1>Awesome <br />Microblogging</h1>
+        <h2>A very plain and extremely simple microblogging platform.</h2>
+        <a class="btn" href="/write">Write</a>
+      </div>
+
+      {!!post && <div class="post">
+        <h6>
+          <a href={`/read/${post.id}`}>Recently Posted</a>
+        </h6>
+        <p>{post.gist}</p>
+      </div>}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    width: 1000px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+  }
+	
+  .hero {
+    background: url("/hero.jpeg") center center;
+    background-size: cover;
+    flex: 1;
+    height: 450px;
+    border-radius: 40px;
+  }
+
+  .data {
+    flex: 1;
+  }
+
+  h1 {
+    font-size: 72px;
+    font-family: "IBM Plex";
+    margin: 0 0 20px;
+  }
+
+  h2 {
+    font-family: "Poppins";
+    font-size:22px;
+    font-weight: 300;
+    margin: 0 0 40px;
+  }
+
+  .post {
+    position: fixed;
+    width: 500px;
+    margin-left: -250px;
+    left: 50%;
+    bottom: 25px;
+    background: #18151a;
+    color: #FFF;
+    padding: 25px;
+    border-radius: 10px;
+    animation: .5s slide-up;
+  }
+
+  .post p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  .post h6 {
+    margin: 0 0 20px;
+    font-size: 16px;
+  }
+
+  .post h6 a {
+    text-decoration: none;
+    color: #FFF;
+  }
+
+  @keyframes slide-up {
+    from {
+      bottom: -300px;
+      opacity: 0;
+    }
+    to {
+      bottom: 25px;
+      opacity: 1;
+    }
+  }
+</style>

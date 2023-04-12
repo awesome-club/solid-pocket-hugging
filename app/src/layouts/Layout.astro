@@ -1,0 +1,59 @@
+---
+export interface Props {
+	title: string;
+}
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;400;600&family=Poppins:wght@100;300;500;700&display=swap" rel="stylesheet">
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	html {
+		font-family: "Poppins";
+  }
+  .btn {
+    background: #171e2a;
+    display: inline-block;
+    text-decoration: none;
+    align-items: center;
+    color: #FFF;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 40px;
+    border-radius: 15px;
+    font-family: "Poppins";
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .btn:hover {
+    background: #18151a;
+  }
+  body {
+    margin: 0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+</style>
